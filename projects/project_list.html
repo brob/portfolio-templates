@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block css %}
+
+{{ block.super }}
+
+
+
+{% endblock css %}
+
+{% block end_scripts %}
+
+
+{% endblock end_scripts %}
+
+{% block content %}
+
+
+<div class ="row" id="map_row">
+<div class ="container">
+		<h1>Projects</h1>
+		<h3>Featured</h3>
+		{{ featured }}
+		
+		<h3>Other</h3>
+		{{ projects }}
+
+	</div><!-- end .container -->
+
+</div><!-- end .row-fluid row -->
+
+<div class ="row">
+	<div class ="container">
+
+	
+	</div><!-- end .container -->
+</div><!-- end .row -->
+
+{% endblock content %}

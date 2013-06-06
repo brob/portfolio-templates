@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block css %}
+
+{{ block.super }}
+
+
+
+{% endblock css %}
+
+{% block end_scripts %}
+
+
+{% endblock end_scripts %}
+
+{% block content %}
+
+
+<div class ="row" id="map_row">
+<div class ="container">
+		<h1>{{ project }}</h1>
+		<p>{{ project.description }}</p>
+		{% if project.skills %}{{ project.skills }}{% endif %}
+
+
+	</div><!-- end .container -->
+
+</div><!-- end .row-fluid row -->
+
+<div class ="row">
+	<div class ="container">
+
+	
+	</div><!-- end .container -->
+</div><!-- end .row -->
+
+{% endblock content %}

@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block css %}
+
+{{ block.super }}
+
+<style>
+	#section-works {
+	}
+	#section-contact {
+	}
+	#section-works .item{
+		background:none;
+	}
+	#section-works .item img {
+		opacity:.5;
+	}
+	#section-works .item img:hover {
+		opacity:1;
+	}
+	.caption {
+		opacity:1;
+	}
+</style>
+
+
+{% endblock css %}
+
+{% block end_scripts %}
+
+
+{% endblock end_scripts %}
+
+{% block home_content %}
+
+
+
+	
+		<div id="section-works">
+			<div class="container">
+					
+				<h3>Featured Projects</h3>
+
+			
+					<!--
+						The modal contents that pops up when a user clicks the item is in the bottom of this section
+						Scroll down and find div beginning with id="work-modal-01"
+					-->
+					
+						{% for project in projects %}
+
+		<div class="five columns">
+					
+					<a href="{{ project.get_absolute_url }}" title="{{project.name}}" data-reveal-id="work-modal-01">
+						<div class="item">
+							<div class="five columns alpha">
+								<img src="{{ project.gallery.photos.all.0.get_homepage_projects_url }}" alt="{{ project.name }}" />
+								<div class="caption">{{ project.name }}</div>
+							</div><!-- // .five -->
+
+							<div class="clear"></div>
+						</div><!-- // .item -->
+					</a>
+					</div><!-- // .fivecolumns -->
+					
+					{% endfor %}
+					
+				</div>
+			</div>
+			
+		</div><!-- // #section-works -->
+		
+	{% comment %}
+	<div id ="section-contact">
+		
+		{% for project in projects %}
+			<a href="{{ project.get_absolute_url }}" title="{{project.name}}">{{ project.name }}</a>
+
+		{% endfor %}
+	</div><!-- end #section-contact -->
+	{% endcomment %}
+
+
+
+{% endblock home_content %}
