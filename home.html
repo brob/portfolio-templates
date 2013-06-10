@@ -51,7 +51,7 @@
 
 		<div class="five columns">
 					
-					<a href="{{ project.get_absolute_url }}" title="{{project.name}}" data-reveal-id="work-modal-01">
+					<a href="{{ project.get_absolute_url }}" title="{{project.name}}" data-reveal-id="work-modal-{{ forloop.counter }}">
 						<div class="item">
 							<div class="five columns alpha">
 								<img src="{{ project.gallery.photos.all.0.get_homepage_projects_url }}" alt="{{ project.name }}" />
@@ -68,17 +68,30 @@
 				</div>
 			</div>
 			
+			{% for project in projects %}
+			<div class="reveal-modal" id="work-modal-{{ forloop.counter }}" style="width: 600px; margin-left: -300px;">
+					<img alt="" src="{{ project.gallery.photos.all.0.get_homepage_popup_url }}">
+
+					<div class="box-modal">
+						<h4><span class="underline">{{ project.name }}</span></h4>
+
+						<p>{{ project.description }}</p>
+
+					</div><!-- // .box-modal -->
+
+					<a target="_blank" class="link-details" href="{{ project.get_absolute_url }}">VISIT WEBSITE</a>
+					<a class="close-reveal-modal">Close</a>
+				</div>
+			
+			{% endfor %}
+			
+			
+			
 		</div><!-- // #section-works -->
 		
-	{% comment %}
 	<div id ="section-contact">
-		
-		{% for project in projects %}
-			<a href="{{ project.get_absolute_url }}" title="{{project.name}}">{{ project.name }}</a>
-
-		{% endfor %}
+	
 	</div><!-- end #section-contact -->
-	{% endcomment %}
 
 
 

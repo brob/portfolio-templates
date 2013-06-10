@@ -5,7 +5,7 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
-
+	{% load staticfiles %}
 	<!-- Basic Page Needs
 	================================================== -->
 	<meta charset="utf-8">
@@ -24,14 +24,14 @@
 	<link rel="shortcut icon" href="images/favicon.ico">
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 	
-	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="{% static "js/jquery-1.9.1.min.js" %}"></script>
 
 	{% block top_script %}
 	
 	{% endblock top_script %}
 	
 	{% block css %}
-	{% load staticfiles %}
+
 
 	<!-- CSS Files
 	* cssreset-min.css 			- CSS reset
@@ -64,6 +64,9 @@
 	}
 	ul.social {
 		margin-left:0;
+	}
+	#footer {
+		margin:0;
 	}
 </style>
 	{% endblock css %}
@@ -163,18 +166,19 @@
 	</div><!-- end .row -->
 	
 	
-	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	
-	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-	
-	<script type="text/javascript" src="file:///Users/bryanrobinson/Documents/personal/trucks/static/js/jTrucks.js"></script>
+
 	
 	
 	
-	
-	
-	
+	<script src="{% static "js/bootstrap-scrollspy.js" %}"></script>
+	<script src="{% static "js/jquery.foundation.reveal.js" %}"></script>
+	<script src="{% static "js/jquery.custom.js" %}"></script>
+
+	<!-- Because jQuery opacity (fadeTo) is being rendered in a weird way in IE browsers, these are only loaded on non-IE browsers -->
+	<!--[if !IE]> -->
+	<script src="{% static "js/jquery.custom.noIE.js" %}"></script>
+	<!-- <![endif]-->
 	
 	
 	
