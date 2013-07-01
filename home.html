@@ -6,20 +6,46 @@
 
 <style>
 	#section-works {
+		background-color:#999;
 	}
 	#section-contact {
 	}
 	#section-works .item{
 		background:none;
 	}
-	#section-works .item img {
-		opacity:.5;
-	}
+
 	#section-works .item img:hover {
 		opacity:1;
 	}
-	.caption {
+	#section-works h3 {
+		color:#222;
+		font-size:1.5em;
+	}
+	.container .five.columns.first {
+		margin-left:0;
+	}
+	#section-works .item {
+		opacity:1 !important;
+	}
+	#section-works .caption {
 		opacity:1;
+		color:#555;
+		display:block;
+	}
+	#section-works .item {
+		margin-left:0;
+	}
+	#section-works .img-wrap {
+		opacity:1;
+	}
+	#section-works .item img {
+		opacity:.9;
+	}
+	
+	{% load photologue_tags %}
+	
+	#section-profileImage {
+		background:url("{% get_rotating_photo "homepage-cover" "homepage_cover" "random_image" %}") no-repeat fixed center center / cover  #222222
 	}
 </style>
 
@@ -49,14 +75,12 @@
 					
 						{% for project in projects %}
 
-		<div class="five columns">
+		<div class="five columns{% if forloop.first %} first{% endif %}">
 					
 					<a href="{{ project.get_absolute_url }}" title="{{project.name}}" data-reveal-id="work-modal-{{ forloop.counter }}">
 						<div class="item">
-							<div class="five columns alpha">
 								<img src="{{ project.gallery.photos.all.0.get_homepage_projects_url }}" alt="{{ project.name }}" />
 								<div class="caption">{{ project.name }}</div>
-							</div><!-- // .five -->
 
 							<div class="clear"></div>
 						</div><!-- // .item -->
