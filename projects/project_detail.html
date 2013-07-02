@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_interior.html" %}
 
 {% block css %}
 
@@ -7,7 +7,7 @@
 
 
 {% endblock css %}
-
+{% block body_class %}project_detail{% endblock %}
 {% block end_scripts %}
 
 
@@ -15,23 +15,22 @@
 
 {% block content %}
 
-
-<div class ="row" id="map_row">
-<div class ="container">
-		<h1>{{ project }}</h1>
+<div id="section-works">
+	<div class="container">
+			
+		<h1>{{ project.name }}</h1>
+		
+		<img src="{{ project.gallery.photos.all.0.get_homepage_cover_url }}">
+		
+		
 		<p>{{ project.description }}</p>
-		{% if project.skills %}{{ project.skills }}{% endif %}
+		{% if project.skills %}{{ project.skills }}{% if not forloop.last %}, {% endif %}{% endif %}
+
 
 
 	</div><!-- end .container -->
 
-</div><!-- end .row-fluid row -->
+</div><!-- end #section-works -->
 
-<div class ="row">
-	<div class ="container">
-
-	
-	</div><!-- end .container -->
-</div><!-- end .row -->
 
 {% endblock content %}
