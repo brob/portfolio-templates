@@ -52,49 +52,20 @@
 	<![endif]-->
 
 <style type="text/css" media="screen">
-	.navbar {
-		background-color:#333;
-	}
-	#section-profileImage #box-name p {
-		font-size:21px;
-		margin-top:20px;
-	}
-	#section-profileImage #box-name h2 {
-		font-family:Uncial Antiqua;
-	}
-	ul.social {
-		margin-left:0;
-	}
-	#footer {
-		margin:0;
-	}
-	.brand {
-		clear: both;
-	    float: left;
-	    font-size: 1.5em;
-	}
-	.navbar {
-		padding:10px 0;
-	}
-	.nav {
-		float:right;
-		
-	}
-	ul.nav li {
-		display:inline;
-	}
-	ul.nav li a{
-		padding:0 20px;
-	}
-	#section-about {
-		background-color:#C65D11;
+
+	
+	
+	{% load photologue_tags %}
+	
+	#section-profileImage {
+		background:url("{% get_rotating_photo "homepage-cover" "homepage_cover" "random_image" %}") no-repeat fixed center center / cover  #222222
 	}
 </style>
 	{% endblock css %}
 
 </head>
 	
-	<body onload="setTimeout(function() { window.scrollTo(0, 1) }, 100);">
+	<body class="{% block body_class %}base{% endblock %}" onload="setTimeout(function() { window.scrollTo(0, 1) }, 100);">
 
 		<div class="navbar navbar-fixed-top" data-scrollspy="scrollspy">
 		    <div class="navbar-inner">
@@ -117,52 +88,14 @@
 		</div><!-- End .topbar -->
 
 
-		<div id="section-intro">
+		
+			{% block home_content %}
+				<div id="section-profileImage"></div>
 
-			<!-- Profile Image -->
-			<div id="section-profileImage">
-				<div class="container">
-					<div class="sixteen columns">
-						<div id="box-name">
-							<h2>Bryan L. Robinson</h2>
-							<p>UX Strategist and Front-end Developer</p>
-						</div><!-- // #box-name -->
-							<ul class="social">
-								<li><a href="http://www.twitter.com/brob" id="Twitter" title="Twitter" target="_blank"><img src="{% static "images/social/Twitter.png" %}"></a></li>
-								<li><a href="http://www.facebook.com/bryanlrobinson/" id="Facebook" title="Dribbble" target="_blank"><img src="{% static "images/social/Facebook.png" %}"></a></li>
-								<li><a href="http://linkedin.com/in/bryanlrobinson" id="LinkedIn" title="LinkedIn" target="_blank"><img src="{% static "images/social/LinkedIn.png" %}"></a></li>
-							</ul>
-					</div><!-- // .four -->
-					<div class="clear"></div>
-				</div><!-- // .container -->
-			</div><!-- // #section-profileImage -->
-
-	
-				<!-- About -->
-				<div id="section-about">
-					<div class="container">
-						<!-- <div class="three columns">
-							<h3>Hi!</h3>
-						</div> -->
-						
-						
-						{% load flatblock_tags %}
-						<div class="sixteen columns">
-							{% flatblock "homepage-bio" evaluated %}
-						</div>
-
-						<div class="clear"></div>
-					</div><!-- // .container -->
-				</div><!-- // #section-about -->
-
-			</div><!-- // #section-intro -->
-	
-
-			
+			{% endblock home_content %}	
 			{% block content %}{% endblock content %}
 
-			{% block home_content %}{% endblock home_content %}
-	
+
 	
 			<div id ="section-footer">
 				<div class="container">

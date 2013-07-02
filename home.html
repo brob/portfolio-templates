@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% block body_class %}home{% endblock %}
+
 
 {% block css %}
 
@@ -6,11 +8,6 @@
 
 <style>
 
-	{% load photologue_tags %}
-	
-	#section-profileImage {
-		background:url("{% get_rotating_photo "homepage-cover" "homepage_cover" "random_image" %}") no-repeat fixed center center / cover  #222222
-	}
 </style>
 
 
@@ -23,6 +20,46 @@
 
 {% block home_content %}
 
+
+<div id="section-intro">
+
+	<!-- Profile Image -->
+	<div id="section-profileImage">
+		<div class="container">
+			<div class="sixteen columns">
+				<div id="box-name">
+					<h2>Bryan L. Robinson</h2>
+					<p>UX Strategist and Front-end Developer</p>
+				</div><!-- // #box-name -->
+					<ul class="social">
+						<li><a href="http://www.twitter.com/brob" id="Twitter" title="Twitter" target="_blank"><img src="{% static "images/social/Twitter.png" %}"></a></li>
+						<li><a href="http://www.facebook.com/bryanlrobinson/" id="Facebook" title="Dribbble" target="_blank"><img src="{% static "images/social/Facebook.png" %}"></a></li>
+						<li><a href="http://linkedin.com/in/bryanlrobinson" id="LinkedIn" title="LinkedIn" target="_blank"><img src="{% static "images/social/LinkedIn.png" %}"></a></li>
+					</ul>
+			</div><!-- // .four -->
+			<div class="clear"></div>
+		</div><!-- // .container -->
+	</div><!-- // #section-profileImage -->
+
+
+		<!-- About -->
+		<div id="section-about">
+			<div class="container">
+				<!-- <div class="three columns">
+					<h3>Hi!</h3>
+				</div> -->
+				
+				
+				{% load flatblock_tags %}
+				<div class="sixteen columns">
+					{% flatblock "homepage-bio" evaluated %}
+				</div>
+
+				<div class="clear"></div>
+			</div><!-- // .container -->
+		</div><!-- // #section-about -->
+
+	</div><!-- // #section-intro -->
 
 
 	
