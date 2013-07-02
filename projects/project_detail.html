@@ -1,5 +1,8 @@
 {% extends "base_interior.html" %}
 
+{% block title_start %}{{ project.name }} - A Piece in the {% endblock title_start %}
+
+
 {% block css %}
 
 {{ block.super }}
@@ -23,7 +26,7 @@
 		<img src="{{ project.gallery.photos.all.0.get_homepage_cover_url }}">
 		
 		
-		<p>{{ project.description }}</p>
+		<p>{{ project.description|safe }}</p>
 		{% if project.skills %}{{ project.skills }}{% if not forloop.last %}, {% endif %}{% endif %}
 
 
