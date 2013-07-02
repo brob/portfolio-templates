@@ -46,6 +46,9 @@
 			</div>
 			
 			{% for project in projects %}
+			
+			{% comment %}
+			
 			<div class="reveal-modal" id="work-modal-{{ forloop.counter }}" style="width: 600px; margin-left: -300px;">
 					<img alt="" src="{{ project.gallery.photos.all.0.get_homepage_popup_url }}">
 
@@ -59,7 +62,7 @@
 					<a target="_blank" class="link-details" href="{{ project.get_absolute_url }}">VISIT WEBSITE</a>
 					<a class="close-reveal-modal">Close</a>
 				</div>
-			
+			{% endcomment %}
 			{% endfor %}
 			
 			
