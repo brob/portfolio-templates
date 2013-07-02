@@ -30,7 +30,7 @@
 
 		<div class="four columns{% if forloop.first %} first{% endif %}">
 					
-					<a href="{{ project.get_absolute_url }}" title="{{project.name}}" data-reveal-id="work-modal-{{ forloop.counter }}">
+					<a href="{{ project.get_absolute_url }}" title="{{project.name}}">
 						<div class="item">
 								<img src="{{ project.gallery.photos.all.0.get_homepage_projects_url }}" alt="{{ project.name }}" />
 								<div class="caption">{{ project.name }}</div>
