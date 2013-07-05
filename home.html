@@ -61,7 +61,7 @@
 					
 						{% for project in projects %}
 
-		<div class="four columns{% if forloop.first %} first{% endif %}">
+		<div class="span3{% if forloop.first %} first{% endif %}">
 					
 					<a href="{{ project.get_absolute_url }}" title="{{project.name}}">
 						<div class="item">

@@ -22,11 +22,11 @@
 	<div class="container">
 			
 		<h1>{{ project.name }}</h1>
+		<p>{{ project.description|safe }}</p>
 		
 		<img src="{{ project.gallery.photos.all.0.get_homepage_cover_url }}">
 		
 		
-		<p>{{ project.description|safe }}</p>
 		{% if project.skills %}{{ project.skills }}{% if not forloop.last %}, {% endif %}{% endif %}
 
 
