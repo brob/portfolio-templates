@@ -27,11 +27,11 @@
 					
 				<h1>A cross section my projects</h1>
 
-			
+			<div class="row">
 					
 		{% for project in projects %}
 
-		<div class="span3 columns{% if forloop.first %} first{% endif %}">
+		<div class="span3 {% if forloop.first %} first{% endif %}">
 					
 					<a href="{{ project.get_absolute_url }}" title="{{project.name}}">
 						<div class="item">
@@ -41,13 +41,13 @@
 							<div class="clear"></div>
 						</div><!-- // .item -->
 					</a>
-					</div><!-- // .fivecolumns -->
+					</div><!-- // .five -->
 					
 					{% endfor %}
 					
 				</div>
 			</div>
-			
+			</div><!-- end .row -->
 			{% for project in projects %}
 			
 			{% comment %}
