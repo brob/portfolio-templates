@@ -8,7 +8,6 @@
 {{ block.super }}
 
 
-
 {% endblock css %}
 {% block body_class %}project_detail{% endblock %}
 {% block end_scripts %}
@@ -22,6 +21,14 @@
 	<div class="container">
 			
 		<h1>{{ project.name }}</h1>
+		<ul class="skill_set">
+			<li>Skills:</a> </li>
+			{% for skill in project.skill.all %}
+				<li><a href="{{ skill.get_absolute_url }}" title="More {{ skill.name }} Projects">{{ skill.name }}</a>{% if not forloop.last %}, {% endif %}</li>
+				
+			{% endfor %}
+		</ul><!-- end .skill_set -->
+		
 		<p>{{ project.description|safe }}</p>
 		
 		<img src="{{ project.gallery.photos.all.0.get_homepage_cover_url }}">
