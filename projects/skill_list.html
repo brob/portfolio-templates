@@ -1,0 +1,44 @@
+{% extends "base_interior.html" %}
+
+
+{% block title_start %}Bryan's Skills -{% endblock title_start %}
+
+{% block css %}
+
+{{ block.super }}
+
+
+
+{% endblock css %}
+
+{% block end_scripts %}
+
+
+{% endblock end_scripts %}
+
+{% block content %}
+
+
+
+
+
+		<div id="section-works">
+			<div class="container">
+					
+				<h1>{% block projectHeadline %}A cross section my projects{% endblock %}</h1>
+
+		<ul>			
+		{% for skill in skills %}
+
+			<li><a href="{{ skill.get_absolute_url }}" title="Projects using {{ skill.name }}">{{ skill.name }}</a></li>
+
+		{% endfor %}
+		</ul>			
+			</div>
+			</div><!-- end .row -->
+	
+		</div><!-- // #section-works -->
+	</div><!-- end .container -->
+
+
+{% endblock content %}
